@@ -120,4 +120,8 @@
   "editor.formatOnSave": true,
   "files.autoSave": "afterDelay",
   "terminal.integrated.defaultProfile.linux": "zsh",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "python.formatting.provider": "none",
 }

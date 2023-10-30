@@ -37,7 +37,7 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip install projen",
+	"postCreateCommand": "npm install projen -g && pip install projen",
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
@@ -54,7 +54,10 @@
 				"ms-vsliveshare.vsliveshare",
 				"ms-python.pylint",
 				"donjayamanne.python-environment-manager",
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"GitHub.vscode-pull-request-github",
+				"ms-python.isort",
+				"searKing.preview-vscode"
 			],
 			"settings": {
 				"highlight.regexes": {
@@ -178,6 +181,7 @@
 				"editor.formatOnSave": true,
 				"files.autoSave": "afterDelay",
 				"terminal.integrated.defaultProfile.linux": "zsh",
+				"editor.defaultFormatter": "ms-python.black-formatter"
 			}
 		}
 	}

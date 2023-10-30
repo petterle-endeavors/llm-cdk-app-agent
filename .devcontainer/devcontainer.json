@@ -37,7 +37,7 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm install projen -g && pip install projen",
+	"postCreateCommand": "npm install projen -g && pip install projen && pip install poetry",
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {

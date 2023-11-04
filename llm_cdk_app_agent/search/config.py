@@ -1,9 +1,12 @@
 import os
 import pinecone
 from aws_lambda_powertools.utilities import parameters
-
+from indexer.fetch_cdk import read_init, split_docs
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.vectorstores import Pinecone
 
 os.environ["AWS_DEFAULT_REGION"] = "us-east-1"
+os.environ["OPENAI_API_KEY"] = str(parameters.get_secret("openai"))
 pinecone_secret = str(parameters.get_secret("pinecone"))
 
 
@@ -39,6 +42,12 @@ class PineconeManager:
         return pinecone.Index(self.index_name)
 
 
-pn = PineconeManager()
-print(pn.list_indexes())
-print(pn.create_or_get_index())
+if __name__ == "__main__":
+    pico = PineconeManager()
+    index = pico.create_or_get_index()
+    # test, _ = read_init()
+    # embeddings = OpenAIEmbeddings()
+    # vectorstore = Pinecone(index, embeddings.embed_query, "text")
+    # vectorstore.add_documents(split_docs("test"),namespace = "cdk-docs")
+    # #pinecone.delete_index("llm-cdk-agent")
+    print("everything uploaded successfuly!")

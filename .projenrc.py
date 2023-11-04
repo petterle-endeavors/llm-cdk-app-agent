@@ -24,6 +24,7 @@ project = PythonProject(
         "aws-lambda-powertools@^2.26.0",
         "jmespath@^1.0.1",
         "boto3@^1.28.78",
+        "pydantic@^2.4.0",
     ],
     dev_deps=["projen@<=0.72.20"],
 )

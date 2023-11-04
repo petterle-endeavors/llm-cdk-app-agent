@@ -4,6 +4,7 @@ from langchain.vectorstores import Pinecone
 
 INDEX_NAME = "llm-cdk-agent"
 
+pinecone.init(api_key="PINECONE_API_KEY", environment="PINECONE_ENV_KEY")
 
 def indexList():
     return pinecone.list_indexes()

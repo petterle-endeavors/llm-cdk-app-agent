@@ -3,3 +3,6 @@ install:
 
 synth:
 	projen --post false
+
+update-deps:
+	poetry update

@@ -2,6 +2,7 @@ import os
 import pinecone
 from aws_lambda_powertools.utilities import parameters
 from indexer.fetch_cdk import read_init, split_docs
+from indexer.fastapi_data import split_fastapi_docs
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Pinecone
 
@@ -48,6 +49,6 @@ if __name__ == "__main__":
     # test, _ = read_init()
     # embeddings = OpenAIEmbeddings()
     # vectorstore = Pinecone(index, embeddings.embed_query, "text")
-    # vectorstore.add_documents(split_docs("test"), namespace = "cdk-docs")
+    # vectorstore.add_documents(split_fastapi_docs(), namespace="fastapi-docs")
     # #pinecone.delete_index("llm-cdk-agent")
     print("everything uploaded successfuly!")

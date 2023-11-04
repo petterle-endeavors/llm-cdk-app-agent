@@ -3,6 +3,8 @@ import os
 
 
 os.environ["AWS_DEFAULT_REGION"] = "us-east-1"
-secret = parameters.get_secret("openai")
+openai_secret = parameters.get_secret("openai")
+pinecone_secret = parameters.get_secret("pinecone")
 
-print(secret[:10])
+print(openai_secret[:10])
+print(pinecone_secret[:10])

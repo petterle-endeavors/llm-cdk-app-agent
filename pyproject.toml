@@ -12,8 +12,11 @@ authors = [ "Jacob Petterle <jacobpetterle@tai-tutor.team>" ]
 readme = "README.md"
 
   [tool.poetry.dependencies]
+  aws-lambda-powertools = "^2.26.0"
   beautifulsoup4 = "4.12.0"
-  langchain = "0.0.30"
+  boto3 = "^1.28.78"
+  jmespath = "^1.0.1"
+  langchain = "0.0.330"
   openai = "0.28.1"
   pinecone-client = "2.2.4"
   python = "^3.8.1"
@@ -22,5 +25,4 @@ readme = "README.md"
   watchdog = "^3.0.0"
 
   [tool.poetry.dev-dependencies]
-  projen = "0.76.18"
-  pytest = "6.2.1"
+  projen = "<=0.72.20"

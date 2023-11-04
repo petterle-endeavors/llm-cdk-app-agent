@@ -14,14 +14,18 @@ project = PythonProject(
     poetry=True,
     deps=[
         "pinecone-client@2.2.4",
-        "langchain@0.0.30",
+        "langchain@0.0.330",
         "beautifulsoup4@4.12.0",
         "openai@0.28.1",
         "unstructured@0.10.0",
         "tiktoken@0.5.1",
         "python@^3.8.1",
         "watchdog@^3.0.0",
+        "aws-lambda-powertools@^2.26.0",
+        "jmespath@^1.0.1",
+        "boto3@^1.28.78",
     ],
+    dev_deps=["projen@<=0.72.20"],
 )
 
 

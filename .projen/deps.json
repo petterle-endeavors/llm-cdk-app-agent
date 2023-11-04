@@ -2,8 +2,13 @@
   "dependencies": [
     {
       "name": "projen",
-      "version": "0.76.18",
+      "version": "<=0.72.20",
       "type": "devenv"
+    },
+    {
+      "name": "aws-lambda-powertools",
+      "version": "^2.26.0",
+      "type": "runtime"
     },
     {
       "name": "beautifulsoup4",
@@ -11,8 +16,18 @@
       "type": "runtime"
     },
     {
+      "name": "boto3",
+      "version": "^1.28.78",
+      "type": "runtime"
+    },
+    {
+      "name": "jmespath",
+      "version": "^1.0.1",
+      "type": "runtime"
+    },
+    {
       "name": "langchain",
-      "version": "0.0.30",
+      "version": "0.0.330",
       "type": "runtime"
     },
     {

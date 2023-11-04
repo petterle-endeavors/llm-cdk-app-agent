@@ -42,6 +42,10 @@ class PineconeManager:
 
         return pinecone.Index(self.index_name)
 
+    def vectorstore(self):
+        # TODO
+        store = Pinecone.from_existing_index(index_name=self.index_name, embedding=OpenAIEmbeddings)
+
 
 if __name__ == "__main__":
     pico = PineconeManager()

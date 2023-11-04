@@ -31,20 +31,24 @@ class CodeWriter:
 
         # raise ValueError('This is not a valid linux filepath: reference this example to "/home/user/documents/example.py"')
 
-    def delete_file(self, filepath: str, startLine: int, endLine: int, deleteAll) -> None:
+    def delete_file(self, filepath: str, startLine: int, endLine: int, deleteAll) -> str:
         fullPath = self.BASE_PATH + filepath
-        print(fullPath)
 
-        if deleteAll:
-            os.remove(fullPath)
-        else:
-            with open(fullPath, "r") as fMatt:
-                lines = fMatt.readlines()
-            with open(fullPath, "w") as fMattAgain:
-                for number, line in enumerate(lines):
-                    if number not in range(startLine, endLine + 1):
-                        print(line)
-                        fMattAgain.write(line)
+        if(os.path.exists(fullPath) and self.is_valid_linux_filepath(fullPath)):
+            if deleteAll:
+                os.remove(fullPath)
+                return "deleted entire file"
+            else:
+                with open(fullPath, "r") as fMatt:
+                    lines = fMatt.readlines()
+                with open(fullPath, "w") as fMattAgain:
+                    for number, line in enumerate(lines):
+                        if number not in range(startLine, endLine + 1):
+                            print(line)
+                            fMattAgain.write(line)
+                return "deleted lines " + str(startLine) + "-" + str(endLine)
+        raise ValueError("file path does not exist, please try again!")
+    
 
     def remove_markdown(self, text):
         """
@@ -112,7 +116,6 @@ class CodeWriter:
         """
         # Ensure the directory structure exists
         directory = os.path.dirname(filepath)
-        print(directory)
         if not os.path.exists(directory):
             os.makedirs(directory)
 
@@ -142,24 +145,21 @@ class CodeWriter:
                 lines = file.readlines()
 
             # Insert the new text at the specified line
-            lines.insert(line_number - 1, text_to_insert)
+            lines.insert(line_number - 1, text_to_insert + "\n")
 
             # Write the modified content back to the file
             with open(full_path, "w") as file:
-                file.writelines("\n".join(lines))
+                file.writelines(lines)
         else:
             raise ValueError("filepath not valid please enter a valid linux filepath")
 
 
 # obj = CodeWriter()
 
-# obj.create(content="print('hello, world!')", filepath="/fml/kys/blah.py")
-# obj.delete_file("fmatt.txt", 2, 4, True)
+# obj.create(content="print('hello, world!')", filepath="/fml/test/test.py")
+# print(obj.delete_file("fmatt.py", 1, 4, True))
 # obj.update("/fml/kys/blah.py", 1, 'print("solo sux")')
 
 
 # todo
-# validation
 # wraping new code around old code?
-# checking file paths
-# ensuring files paths are .py?

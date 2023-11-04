@@ -1,5 +1,6 @@
 from projen.python import PythonProject
 
+
 AUTHORS = [
     "Jacob Petterle",
 ]
@@ -12,5 +13,6 @@ project = PythonProject(
     description="A CDK app for deploying the LLM agent",
     poetry=True,
 )
+
 
 project.synth()

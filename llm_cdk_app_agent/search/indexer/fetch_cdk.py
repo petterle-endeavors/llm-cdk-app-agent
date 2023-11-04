@@ -2,6 +2,10 @@ import subprocess
 import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.document_loaders import DirectoryLoader, TextLoader, PythonLoader
+from langchain.text_splitter import (
+    RecursiveCharacterTextSplitter,
+    Language,
+)
 
 
 # Function that downloads wheel files
@@ -39,13 +43,19 @@ def read_init():
     return aws_lambda_init, aws_s3_init
 
 
-# Recursively split text
+# Recursively split docs text
 def split_docs(doc: tuple):
     """Recursively split text."""
-    loader = DirectoryLoader(".cache/py_folders/aws_cdk/aws_lambda", glob="**/*.py", loader_cls=PythonLoader)
-
+    loader = DirectoryLoader(".cache/py_folders/aws_cdk/aws_lambda", glob="**/*.py", use_multithreading=True, loader_cls=PythonLoader)
+    docs = loader.load()
+    python_splitter = RecursiveCharacterTextSplitter.from_language(
+    language=Language.PYTHON, chunk_size=200, chunk_overlap=20)
+    splitted_docs = python_splitter.split_documents(docs)
+    
+    return splitted_docs
 
 if __name__ == "__main__":
+    download_wheel()
     test, _ = read_init()
 
-    print(split_docs(test))
+    print(len(split_docs(test)))

@@ -41,6 +41,11 @@
       "type": "runtime"
     },
     {
+      "name": "pydantic",
+      "version": "^2.4.0",
+      "type": "runtime"
+    },
+    {
       "name": "python",
       "version": "^3.8.1",
       "type": "runtime"

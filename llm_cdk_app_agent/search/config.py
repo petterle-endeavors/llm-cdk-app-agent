@@ -48,6 +48,6 @@ if __name__ == "__main__":
     # test, _ = read_init()
     # embeddings = OpenAIEmbeddings()
     # vectorstore = Pinecone(index, embeddings.embed_query, "text")
-    # vectorstore.add_documents(split_docs("test"),namespace = "cdk-docs")
+    # vectorstore.add_documents(split_docs("test"), namespace = "cdk-docs")
     # #pinecone.delete_index("llm-cdk-agent")
     print("everything uploaded successfuly!")

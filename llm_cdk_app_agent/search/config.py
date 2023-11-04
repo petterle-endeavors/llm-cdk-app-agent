@@ -1,31 +1,28 @@
 import pinecone
-from openai import OpenAIEmbeddings
-from langchain.vectorstores import Pinecone
 
-INDEX_NAME = "llm-cdk-agent"
+class PineconeManager:
+    def __init__(self, api_key, env_key, index_name="llm-cdk-agent"):
+        self.api_key = api_key
+        self.env_key = env_key
+        self.index_name = index_name
+        pinecone.init(api_gitkey=self.api_key, environment=self.env_key)
 
-pinecone.init(api_key="PINECONE_API_KEY", environment="PINECONE_ENV_KEY")
+    def list_indexes(self):
+        return pinecone.list_indexes()
 
-def indexList():
-    return pinecone.list_indexes()
+    def create_or_get_index(self, dimension=1536, metric="cosine"):
+        if self.index_name not in self.list_indexes():
+            pinecone.create_index(
+                name=self.index_name,
+                dimension=dimension,
+                metric=metric,
+            )
+            print(f"created a new index {self.index_name}")
+        else:
+            print(f"{self.index_name} index existed. Skip creating.")
+            index = pinecone.Index(self.index_name)
+            index_stats_response = index.describe_index_stats()
+            vector_count = index_stats_response.total_vector_count
+            print(f"total_vector_count is {vector_count}")
 
-
-def vectorStore(index_name: str = INDEX_NAME, dimension: int = 1536, metric: str = "cosine"):
-    # check before creating
-    if index_name not in indexList():
-        # index not existed. Create a new index
-        pinecone.create_index(
-            name=index_name,
-            dimension=dimension,
-            metric=metric,
-        )
-        print(f"created a new index {index_name}")
-    else:
-        print(f"{index_name} index existed. skip creating.")
-        index = pinecone.Index(index_name)
-        index_stats_response = index.describe_index_stats()
-        vector_count = index_stats_response.total_vector_count
-        print(f"total_vector_count is {vector_count}")
-
-        return index
-    return pinecone.Index(index_name)
+        return pinecone.Index(self.index_name)

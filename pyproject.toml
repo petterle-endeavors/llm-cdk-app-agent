@@ -12,14 +12,13 @@ authors = [ "Jacob Petterle <jacobpetterle@tai-tutor.team>" ]
 readme = "README.md"
 
   [tool.poetry.dependencies]
-  beautifulsoup4 = "*"
-  langchain = "*"
-  openai = "*"
-  pinecone-client = "*"
-  playwright = "*"
-  tiktoken = "*"
-  unstructured = "*"
-  python = "^3.7"
+  beautifulsoup4 = "4.12.0"
+  langchain = "0.0.30"
+  openai = "0.28.1"
+  pinecone-client = "2.2.4"
+  python = "^3.8.1"
+  tiktoken = "0.5.1"
+  unstructured = "0.10.0"
 
   [tool.poetry.dev-dependencies]
   projen = "0.76.18"

@@ -7,30 +7,37 @@
     },
     {
       "name": "beautifulsoup4",
+      "version": "4.12.0",
       "type": "runtime"
     },
     {
       "name": "langchain",
+      "version": "0.0.30",
       "type": "runtime"
     },
     {
       "name": "openai",
+      "version": "0.28.1",
       "type": "runtime"
     },
     {
       "name": "pinecone-client",
+      "version": "2.2.4",
       "type": "runtime"
     },
     {
-      "name": "playwright",
+      "name": "python",
+      "version": "^3.8.1",
       "type": "runtime"
     },
     {
       "name": "tiktoken",
+      "version": "0.5.1",
       "type": "runtime"
     },
     {
       "name": "unstructured",
+      "version": "0.10.0",
       "type": "runtime"
     },
     {

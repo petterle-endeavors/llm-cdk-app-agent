@@ -13,14 +13,14 @@ project = PythonProject(
     description="A CDK app for deploying the LLM agent",
     poetry=True,
     deps=[
-        "pinecone-client",
-        "langchain",
-        "beautifulsoup4",
-        "openai",
-        "unstructured",
-        "playwright",
-        "tiktoken"
-    ]
+        "pinecone-client@2.2.4",
+        "langchain@0.0.30",
+        "beautifulsoup4@4.12.0",
+        "openai@0.28.1",
+        "unstructured@0.10.0",
+        "tiktoken@0.5.1",
+        "python@^3.8.1",
+    ],
 )
 
 

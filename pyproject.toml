@@ -15,5 +15,5 @@ readme = "README.md"
   python = "^3.7"
 
   [tool.poetry.dev-dependencies]
-  projen = "0.76.12"
+  projen = "0.76.18"
   pytest = "6.2.1"

@@ -41,6 +41,11 @@
       "type": "runtime"
     },
     {
+      "name": "watchdog",
+      "version": "^3.0.0",
+      "type": "runtime"
+    },
+    {
       "name": "pytest",
       "version": "6.2.1",
       "type": "test"

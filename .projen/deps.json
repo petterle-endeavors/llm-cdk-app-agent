@@ -6,6 +6,34 @@
       "type": "devenv"
     },
     {
+      "name": "beautifulsoup4",
+      "type": "runtime"
+    },
+    {
+      "name": "langchain",
+      "type": "runtime"
+    },
+    {
+      "name": "openai",
+      "type": "runtime"
+    },
+    {
+      "name": "pinecone-client",
+      "type": "runtime"
+    },
+    {
+      "name": "playwright",
+      "type": "runtime"
+    },
+    {
+      "name": "tiktoken",
+      "type": "runtime"
+    },
+    {
+      "name": "unstructured",
+      "type": "runtime"
+    },
+    {
       "name": "pytest",
       "version": "6.2.1",
       "type": "test"

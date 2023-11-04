@@ -1,6 +1,4 @@
 import pinecone
-from openai import OpenAIEmbeddings
-from langchain.vectorstores import Pinecone
 
 INDEX_NAME = "llm-cdk-agent"
 

@@ -20,6 +20,7 @@ project = PythonProject(
         "unstructured@0.10.0",
         "tiktoken@0.5.1",
         "python@^3.8.1",
+        "watchdog@^3.0.0",
     ],
 )
 
